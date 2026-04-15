@@ -1,0 +1,7 @@
+node_modules/
+.env
+dist/
+build/
+test_out.txt
+test_license.pdf
+*.log
