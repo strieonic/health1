@@ -31,16 +31,6 @@ const scaleIn = {
   })
 };
 
-/* ─── Testimonial static authors (names/roles stay English) ─── */
-const testimonialAuthors = [
-  { name: 'Priya S.', role: 'Patient, Mumbai', color: '#FF3366', key: 'testimonial1' },
-  { name: 'Rahul M.', role: 'Patient, Delhi', color: '#00D4AA', key: 'testimonial2' },
-  { name: 'Dr. Anjali K.', role: 'Apollo Hospitals', color: '#FFB347', key: 'testimonial3' },
-  { name: 'Dr. Vikram P.', role: 'Max Healthcare', color: '#8B5CF6', key: 'testimonial4' },
-  { name: 'Sneha T.', role: 'Patient, Pune', color: '#FF3366', key: 'testimonial5' },
-  { name: 'Arjun D.', role: 'Patient, Bangalore', color: '#00D4AA', key: 'testimonial6' },
-];
-
 /* ─── FAQ Item Component ─── */
 const FAQItem = ({ question, answer, index }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,9 +85,9 @@ const FAQItem = ({ question, answer, index }) => {
 const Landing = () => {
   const { t } = useTranslation();
   const [stats, setStats] = useState({
-    patients: 12000,
-    hospitals: 50,
-    statesCovered: 28,
+    patients: 0,
+    hospitals: 0,
+    records: 0,
     uptime: 99.9
   });
 
@@ -113,7 +103,7 @@ const Landing = () => {
     fetchStats();
   }, []);
 
-  // Build FAQ and testimonial data from translations
+  // Build FAQ data from translations
   const faqData = [
     { q: t('landing.faq1Q'), a: t('landing.faq1A') },
     { q: t('landing.faq2Q'), a: t('landing.faq2A') },
@@ -121,11 +111,6 @@ const Landing = () => {
     { q: t('landing.faq4Q'), a: t('landing.faq4A') },
     { q: t('landing.faq5Q'), a: t('landing.faq5A') },
   ];
-
-  const testimonials = testimonialAuthors.map(a => ({
-    ...a,
-    text: t(`landing.${a.key}`),
-  }));
   const heroRef = useRef(null);
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
@@ -459,9 +444,9 @@ const Landing = () => {
 
             <motion.div className="stat-item" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
               <div className="stat-number">
-                <AnimatedCounter end={stats.statesCovered} suffix="" />
+                <AnimatedCounter end={stats.records} suffix="+" />
               </div>
-              <div className="stat-label">{t('landing.statStates')}</div>
+              <div className="stat-label">{t('landing.statRecords')}</div>
             </motion.div>
 
             <motion.div className="stat-item" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
@@ -509,42 +494,6 @@ const Landing = () => {
               <h4 className="process-step-title">{step.title}</h4>
               <p className="process-step-desc">{step.desc}</p>
             </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════
-          TESTIMONIALS — Auto-scroll Marquee
-      ════════════════════════════════════ */}
-      <section className="testimonials-section">
-        <motion.div
-          className="testimonials-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="section-label">{t('landing.testimonialsLabel')}</div>
-          <h2 className="section-title">
-            {t('landing.testimonialsTitle')}
-          </h2>
-        </motion.div>
-
-        <div className="testimonials-track" aria-label="Testimonials">
-          {/* Duplicate for infinite scroll */}
-          {[...testimonials, ...testimonials].map((tm, i) => (
-            <div key={i} className="testimonial-card">
-              <p className="testimonial-text">"{tm.text}"</p>
-              <div className="testimonial-author">
-                <div className="testimonial-avatar" style={{ background: `${tm.color}20`, color: tm.color }}>
-                  {tm.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="testimonial-name">{tm.name}</div>
-                  <div className="testimonial-role">{tm.role}</div>
-                </div>
-              </div>
-            </div>
           ))}
         </div>
       </section>

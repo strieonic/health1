@@ -9,11 +9,10 @@ export const getStats = async (req, res) => {
     const recordCount = await MedicalRecord.countDocuments();
 
     res.status(200).json({
-      patients: 12000 + patientCount, // Base numbers from UI + real data
-      hospitals: 50 + hospitalCount,
-      statesCovered: 28,
-      uptime: 99.9,
-      totalRecords: recordCount
+      patients: patientCount,
+      hospitals: hospitalCount,
+      records: recordCount,
+      uptime: 99.9
     });
   } catch (err) {
     res.status(500).json({ message: "Failed to fetch stats", error: err.message });
