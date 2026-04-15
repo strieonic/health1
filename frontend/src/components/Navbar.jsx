@@ -149,7 +149,7 @@ const Navbar = () => {
               />
             </svg>
             <span className="brand-text">
-              Health<span className="brand-accent">ID</span>
+              Arogy<span className="brand-accent">am</span>
             </span>
           </Link>
 

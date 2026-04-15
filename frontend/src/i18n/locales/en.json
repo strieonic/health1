@@ -62,7 +62,7 @@
     "card3Title": "Blood Report",
     "card3Subtitle": "12 Apr 2026",
     "brandStatement": "Your health data should serve you — not be scattered across dusty files in hospitals you'll never visit again.",
-    "featuresLabel": "Why HealthID",
+    "featuresLabel": "Why Arogyam",
     "featuresTitle": "Built for how healthcare actually works in India",
     "feature1Title": "Unified Medical Timeline",
     "feature1Desc": "Every prescription, lab report, diagnosis, and doctor visit — from every hospital — in a single, chronological timeline. No more carrying bulky files or explaining your history from scratch at every new clinic.",
@@ -100,8 +100,8 @@
     "faq2A": "Your records are encrypted and only accessible through an OTP-based consent system. Hospitals cannot view your data without your explicit permission. You control who sees what and for how long.",
     "faq3Q": "Can any hospital access my records?",
     "faq3A": "No. Only government-registered and verified hospitals on our platform can request access. Even then, you must grant them temporary permission via a one-time password sent to your phone.",
-    "faq4Q": "Is there a cost to use HealthID?",
-    "faq4A": "HealthID is completely free for patients. Our mission is to make healthcare data accessible and secure for every citizen of India.",
+    "faq4Q": "Is there a cost to use Arogyam?",
+    "faq4A": "Arogyam is completely free for patients. Our mission is to make healthcare data accessible and secure for every citizen of India.",
     "faq5Q": "What if I lose my phone or change my number?",
     "faq5A": "Your Health ID is linked to your Aadhaar and can be recovered through identity verification. Your records remain safe in the cloud regardless of device changes.",
     "ctaHeadline": "Your health records deserve",
@@ -124,7 +124,7 @@
     "footerPrivacy": "Privacy Policy",
     "footerTerms": "Terms of Service",
     "footerSecurity": "Security",
-    "footerCopyright": "© {{year}} HealthID India. All rights reserved."
+    "footerCopyright": "© {{year}} Arogyam India. All rights reserved."
   },
   "patient": {
     "loginTitle": "Patient Access",
