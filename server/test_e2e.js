@@ -5,9 +5,11 @@ import FormData from 'form-data';
 import OTP from './models/OTP.js';
 import axios from 'axios';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const API_BASE = 'http://localhost:8000/api';
-// Assuming MONGO_URI is locally known or environment
-const MONGO_URI = "mongodb+srv://healthId:healthIdMIT@cluster0.3wyrhef.mongodb.net/healthIdApp";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/healthIdApp_test";
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint}`;
