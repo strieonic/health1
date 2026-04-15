@@ -127,9 +127,7 @@
     "footerUploadRecords": "ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
     "footerPlatform": "ಪ್ಲಾಟ್‌ಫಾರ್ಮ್",
     "footerAdminPortal": "ಅಡ್ಮಿನ್ ಪೋರ್ಟಲ್",
-    "footerPrivacy": "ಗೌಪ್ಯತೆ ನೀತಿ",
-    "footerTerms": "ಸೇವಾ ನಿಯಮಗಳು",
-    "footerSecurity": "ಭದ್ರತೆ",
+    
     "footerCopyright": "© {{year}} HealthID India. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
   },
   "patient": {

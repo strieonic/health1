@@ -127,9 +127,7 @@
     "footerUploadRecords": "ਰਿਕਾਰਡ ਅੱਪਲੋਡ ਕਰੋ",
     "footerPlatform": "ਪਲੇਟਫਾਰਮ",
     "footerAdminPortal": "ਐਡਮਿਨ ਪੋਰਟਲ",
-    "footerPrivacy": "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",
-    "footerTerms": "ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ",
-    "footerSecurity": "ਸੁਰੱਖਿਆ",
+    
     "footerCopyright": "© {{year}} HealthID ਭਾਰਤ. ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।"
   },
   "patient": {

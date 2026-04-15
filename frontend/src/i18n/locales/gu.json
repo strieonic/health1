@@ -127,9 +127,7 @@
     "footerUploadRecords": "રેકોર્ડ અપલોડ",
     "footerPlatform": "પ્લેટફોર્મ",
     "footerAdminPortal": "એડમિન પોર્ટલ",
-    "footerPrivacy": "ગોપનીયતા નીતિ",
-    "footerTerms": "સેવાની શરતો",
-    "footerSecurity": "સુરક્ષા",
+    
     "footerCopyright": "© {{year}} હેલ્થID ઈન્ડિયા. સર્વ હક્ક સુરક્ષિત."
   },
   "patient": {

@@ -596,9 +596,6 @@ const Landing = () => {
             <h4 className="footer-column-title">{t('landing.footerPlatform')}</h4>
             <ul className="footer-links">
               <li><Link to="/admin/login">{t('landing.footerAdminPortal')}</Link></li>
-              <li><a href="#privacy">{t('landing.footerPrivacy')}</a></li>
-              <li><a href="#terms">{t('landing.footerTerms')}</a></li>
-              <li><a href="#security">{t('landing.footerSecurity')}</a></li>
             </ul>
           </div>
         </div>

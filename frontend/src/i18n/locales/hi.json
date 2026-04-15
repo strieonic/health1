@@ -127,9 +127,6 @@
     "footerUploadRecords": "रिकॉर्ड अपलोड करें",
     "footerPlatform": "प्लेटफ़ॉर्म",
     "footerAdminPortal": "एडमिन पोर्टल",
-    "footerPrivacy": "गोपनीयता नीति",
-    "footerTerms": "सेवा की शर्तें",
-    "footerSecurity": "सुरक्षा",
     "footerCopyright": "© {{year}} हेल्थआईडी इंडिया। सर्वाधिकार सुरक्षित।"
   },
   "patient": {

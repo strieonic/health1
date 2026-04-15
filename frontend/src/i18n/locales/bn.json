@@ -127,9 +127,7 @@
     "footerUploadRecords": "রেকর্ড আপলোড",
     "footerPlatform": "প্ল্যাটফর্ম",
     "footerAdminPortal": "অ্যাডমিন পোর্টাল",
-    "footerPrivacy": "গোপনীয়তা নীতি",
-    "footerTerms": "সেবার শর্তাবলী",
-    "footerSecurity": "নিরাপত্তা",
+    
     "footerCopyright": "© {{year}} হেল্থআইডি ইন্ডিয়া। সর্বস্বত্ব সংরক্ষিত।"
   },
   "patient": {

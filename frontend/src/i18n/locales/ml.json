@@ -127,9 +127,7 @@
     "footerUploadRecords": "രേഖകൾ അപ്‌ലോഡ് ചെയ്യുക",
     "footerPlatform": "പ്ലാറ്റ്‌ഫോം",
     "footerAdminPortal": "അഡ്മിൻ പോർട്ടൽ",
-    "footerPrivacy": "സ്വകാര്യതാ നയം",
-    "footerTerms": "സേവന നിബന്ധനകൾ",
-    "footerSecurity": "സുരക്ഷ",
+    
     "footerCopyright": "© {{year}} HealthID India. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം."
   },
   "patient": {

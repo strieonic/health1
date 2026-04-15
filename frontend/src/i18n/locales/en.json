@@ -121,9 +121,6 @@
     "footerUploadRecords": "Upload Records",
     "footerPlatform": "Platform",
     "footerAdminPortal": "Admin Portal",
-    "footerPrivacy": "Privacy Policy",
-    "footerTerms": "Terms of Service",
-    "footerSecurity": "Security",
     "footerCopyright": "© {{year}} Arogyam India. All rights reserved."
   },
   "patient": {
