@@ -1,11 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import "./config/cloudinary.js";
-console.log("EMAIL_USER =", process.env.EMAIL_USER);
-console.log("EMAIL_PASS =", process.env.EMAIL_PASS);
-console.log("Cloudinary ENV:", process.env.CLOUD_NAME);
-console.log("Cloudinary ENV:", process.env.CLOUD_API_KEY);
-console.log("Cloudinary ENV:", process.env.CLOUD_API_SECRET);
+// Environment variables loaded
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
