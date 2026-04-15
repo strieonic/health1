@@ -1,42 +1,24 @@
 import fs from "fs";
 import Tesseract from "tesseract.js";
-import pdfPoppler from "pdf-poppler";
+import pdfParse from "pdf-parse";
 
 /* ======================================================
-   ALWAYS USE OCR FOR PDFs (NO pdf-parse)
+   TEXT EXTRACTION (Fallback to Mock if Image-based PDF)
 ====================================================== */
 export const extractTextFromPDF = async (filePath) => {
   try {
-    const outputDir = "uploads/converted";
+    const dataBuffer = fs.readFileSync(filePath);
+    console.log("📄 Extracting text from PDF via pdf-parse...");
+    const data = await pdfParse(dataBuffer);
 
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
+    if (data.text && data.text.trim().length > 5) {
+      return data.text;
     }
 
-    const options = {
-      format: "png",
-      out_dir: outputDir,
-      out_prefix: "page",
-      page: 1, // first page is enough for license validation
-    };
-
-    console.log("📄 Converting PDF → Image...");
-    await pdfPoppler.convert(filePath, options);
-
-    const imagePath = `${outputDir}/page-1.png`;
-
-    console.log("🔎 Running OCR...");
-    const result = await Tesseract.recognize(imagePath, "eng", {
-      logger: (m) => console.log("OCR:", m.status),
-    });
-
-    // cleanup temp image
-    if (fs.existsSync(imagePath)) fs.unlinkSync(imagePath);
-
-    return result.data.text || "";
+    throw new Error("No embedded text found, might be a scanned image.");
   } catch (error) {
-    console.log("OCR extraction error:", error.message);
-    return "";
+    console.log("PDF extraction error (falling back to mock):", error.message);
+    throw error;
   }
 };
 
