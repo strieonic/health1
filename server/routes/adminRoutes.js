@@ -6,6 +6,10 @@ import {
   getHospitalDetails,
   approveHospital,
   rejectHospital,
+  getAdminStats,
+  getAllPatients,
+  getAllRecords,
+  getAllConsents,
 } from "../controllers/adminController.js";
 
 const router = express.Router();
@@ -20,5 +24,10 @@ router.get("/hospitals/:id", protectAdmin, getHospitalDetails);
 
 router.put("/hospitals/:id/approve", protectAdmin, approveHospital);
 router.put("/hospitals/:id/reject", protectAdmin, rejectHospital);
+
+router.get("/stats", protectAdmin, getAdminStats);
+router.get("/patients", protectAdmin, getAllPatients);
+router.get("/records", protectAdmin, getAllRecords);
+router.get("/consents", protectAdmin, getAllConsents);
 
 export default router;

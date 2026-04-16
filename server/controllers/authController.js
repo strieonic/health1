@@ -143,7 +143,11 @@ export const registerHospital = async (req, res) => {
       return res.status(400).json({ message: "Licence file required" });
 
     /* ================= OCR FROM BUFFER ================= */
-    const tempPath = `uploads/temp-${Date.now()}.pdf`;
+    const uploadDir = "uploads";
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    const tempPath = `${uploadDir}/temp-${Date.now()}.pdf`;
     fs.writeFileSync(tempPath, req.file.buffer);
 
     let licenseText = "";

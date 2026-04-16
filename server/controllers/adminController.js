@@ -1,4 +1,7 @@
 import Hospital from "../models/Hospital.js";
+import Patient from "../models/Patient.js";
+import MedicalRecord from "../models/MedicalRecord.js";
+import Consent from "../models/Consent.js";
 import jwt from "jsonwebtoken";
 
 /* ======================================================
@@ -120,5 +123,97 @@ export const rejectHospital = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Rejection failed" });
+  }
+};
+
+/* ======================================================
+   GET DASHBOARD STATS
+====================================================== */
+export const getAdminStats = async (req, res) => {
+  try {
+    const totalPatients = await Patient.countDocuments();
+    const totalHospitals = await Hospital.countDocuments();
+    const totalRecords = await MedicalRecord.countDocuments();
+    const totalConsents = await Consent.countDocuments();
+
+    const pendingHospitals = await Hospital.countDocuments({ status: "pending" });
+    const approvedHospitals = await Hospital.countDocuments({ status: "approved" });
+    const rejectedHospitals = await Hospital.countDocuments({ status: "rejected" });
+    const approvedConsents = await Consent.countDocuments({ status: "approved" });
+    const pendingConsents = await Consent.countDocuments({ status: "pending" });
+
+    // Recent counts (last 7 days)
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const recentPatients = await Patient.countDocuments({ createdAt: { $gte: sevenDaysAgo } });
+    const recentHospitals = await Hospital.countDocuments({ createdAt: { $gte: sevenDaysAgo } });
+    const recentRecords = await MedicalRecord.countDocuments({ createdAt: { $gte: sevenDaysAgo } });
+
+    res.status(200).json({
+      totalPatients,
+      totalHospitals,
+      totalRecords,
+      totalConsents,
+      pendingHospitals,
+      approvedHospitals,
+      rejectedHospitals,
+      approvedConsents,
+      pendingConsents,
+      recentPatients,
+      recentHospitals,
+      recentRecords,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch stats" });
+  }
+};
+
+/* ======================================================
+   GET ALL PATIENTS
+====================================================== */
+export const getAllPatients = async (req, res) => {
+  try {
+    const patients = await Patient.find().sort({ createdAt: -1 });
+    res.status(200).json({
+      total: patients.length,
+      patients,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch patients" });
+  }
+};
+
+/* ======================================================
+   GET ALL RECORDS
+====================================================== */
+export const getAllRecords = async (req, res) => {
+  try {
+    const records = await MedicalRecord.find()
+      .populate("patient", "name healthId")
+      .populate("hospital", "hospitalName")
+      .sort({ createdAt: -1 });
+    res.status(200).json({
+      total: records.length,
+      records,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch records" });
+  }
+};
+
+/* ======================================================
+   GET ALL CONSENTS
+====================================================== */
+export const getAllConsents = async (req, res) => {
+  try {
+    const consents = await Consent.find()
+      .populate("patientId", "name healthId")
+      .populate("hospitalId", "hospitalName")
+      .sort({ createdAt: -1 });
+    res.status(200).json({
+      total: consents.length,
+      consents,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch consents" });
   }
 };
