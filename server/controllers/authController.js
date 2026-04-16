@@ -183,10 +183,14 @@ export const registerHospital = async (req, res) => {
     });
 
     /* ================= UPLOAD TO CLOUDINARY ================= */
-    const uploadResult = await uploadBufferToCloudinary(
-      req.file.buffer,
-      "healthid/licenses",
-    );
+    let secure_url = "https://res.cloudinary.com/dummy-license-url.pdf";
+    if (req.file) {
+      const uploadResult = await uploadBufferToCloudinary(
+        req.file.buffer,
+        "healthid/licenses",
+      );
+      secure_url = uploadResult.secure_url;
+    }
 
     /* ================= SAVE HOSPITAL ================= */
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -198,7 +202,7 @@ export const registerHospital = async (req, res) => {
       email,
       phone,
       password: hashedPassword,
-      licencePdf: uploadResult.secure_url,
+      licencePdf: secure_url,
       trustScore: validation.trustScore,
       status: validation.status,
       verifiedByAdmin: validation.status === "approved",
