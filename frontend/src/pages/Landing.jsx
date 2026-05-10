@@ -565,7 +565,7 @@ const Landing = () => {
               <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
                 <path d="M2 14h5l3-8 4 16 3-10 2 4h7" stroke="var(--accent-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Arogyam
+              arogyamId
             </div>
             <p className="footer-brand-desc">
               {t('landing.footerDesc')}

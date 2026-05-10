@@ -5,7 +5,7 @@ import api from '../../api/axios';
 
 const UploadRecord = () => {
   const { t } = useTranslation();
-  const [arogyamId, setArogyam] = useState('');
+  const [arogyamId, setArogyamId] = useState('');
   const [recordType, setRecordType] = useState('Prescription');
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +23,7 @@ const UploadRecord = () => {
     setMessage('');
 
     const data = new FormData();
-    data.append('Arogyam', Arogyam);
+    data.append('arogyamId', arogyamId);
     data.append('recordType', recordType);
     data.append('file', file);
 
@@ -54,7 +54,7 @@ const UploadRecord = () => {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           <div className="input-group">
             <label>{t('hospital.patientArogyamField')}</label>
-            <input type="text" className="glass-input" value={Arogyam} onChange={(e) => setArogyam(e.target.value)} required />
+            <input type="text" className="glass-input" value={arogyamId} onChange={(e) => setArogyamId(e.target.value)} required />
           </div>
 
           <div className="input-group">

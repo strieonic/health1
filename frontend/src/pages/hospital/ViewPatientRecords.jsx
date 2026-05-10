@@ -16,7 +16,7 @@ const ViewPatientRecords = () => {
   useEffect(() => {
     const fetchRecords = async () => {
       try {
-        const res = await api.get(`/records/${Arogyam}`);
+        const res = await api.get(`/records/${arogyamId}`);
         setRecords(res.data.records || []);
       } catch (err) {
         console.error("Failed to fetch patient records", err);
@@ -25,7 +25,7 @@ const ViewPatientRecords = () => {
         setLoading(false);
       }
     };
-    if (Arogyam) {
+    if (arogyamId) {
       fetchRecords();
     }
   }, [arogyamId, t]);
@@ -38,7 +38,7 @@ const ViewPatientRecords = () => {
         </button>
         <div>
           <h2 className="heading-gradient" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <FaUser /> {t('admin.patient')} Records: {Arogyam}
+            <FaUser /> {t('admin.patient')} Records: {arogyamId}
           </h2>
         </div>
       </div>

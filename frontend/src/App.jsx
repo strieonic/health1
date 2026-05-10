@@ -114,7 +114,7 @@ function AppInner() {
               <Route path="/hospital/upload" element={<ProtectedHospitalRoute><UploadRecord /></ProtectedHospitalRoute>} />
               <Route path="/hospital/patients" element={<ProtectedHospitalRoute><MyPatients /></ProtectedHospitalRoute>} />
               <Route path="/hospital/records" element={<ProtectedHospitalRoute><HospitalRecords /></ProtectedHospitalRoute>} />
-              <Route path="/hospital/records/:Arogyam" element={<ProtectedHospitalRoute><ViewPatientRecords /></ProtectedHospitalRoute>} />
+              <Route path="/hospital/records/:arogyamId" element={<ProtectedHospitalRoute><ViewPatientRecords /></ProtectedHospitalRoute>} />
               
               {/* Admin Flow */}
               <Route path="/admin/login" element={<AdminLogin />} />

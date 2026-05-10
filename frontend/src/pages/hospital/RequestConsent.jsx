@@ -8,7 +8,7 @@ import { FaLock, FaCheckCircle, FaFileMedical, FaCloudUploadAlt } from 'react-ic
 const RequestConsent = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [arogyamId, setArogyam] = useState('');
+  const [arogyamId, setArogyamId] = useState('');
   const [otp, setOtp] = useState('');
   const [consentId, setConsentId] = useState('');
   const [devOTP, setDevOTP] = useState('');
@@ -66,7 +66,7 @@ const RequestConsent = () => {
           <form onSubmit={handleRequest} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div className="input-group">
               <label style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{t('hospital.patientArogyamLabel')}</label>
-              <input type="text" className="glass-input" value={Arogyam} onChange={(e) => setArogyam(e.target.value)} required placeholder={t('hospital.arogyamIdPlaceholder')} style={{ marginTop: '0.5rem' }} />
+              <input type="text" className="glass-input" value={arogyamId} onChange={(e) => setArogyamId(e.target.value)} required placeholder={t('hospital.arogyamIdPlaceholder')} style={{ marginTop: '0.5rem' }} />
             </div>
             <button type="submit" className="primary-btn" disabled={loading} style={{ width: '100%' }}>
               {loading ? t('hospital.sending') : t('hospital.requestPatientConsent')}
@@ -100,7 +100,7 @@ const RequestConsent = () => {
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>{t('hospital.canNowUpload')}</p>
             </div>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
-              <Link to={`/hospital/records/${Arogyam}`} className="primary-btn" style={{ flex: 1, padding: '10px', fontSize: '0.9rem' }}>
+              <Link to={`/hospital/records/${arogyamId}`} className="primary-btn" style={{ flex: 1, padding: '10px', fontSize: '0.9rem' }}>
                 <FaFileMedical /> View Records
               </Link>
               <Link to={`/hospital/upload`} className="secondary-btn" style={{ flex: 1, padding: '10px', fontSize: '0.9rem' }}>

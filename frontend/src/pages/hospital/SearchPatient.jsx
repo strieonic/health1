@@ -6,7 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 
 const SearchPatient = () => {
   const { t } = useTranslation();
-  const [arogyamId, setArogyam] = useState('');
+  const [arogyamId, setArogyamId] = useState('');
   const [patient, setPatient] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -39,8 +39,8 @@ const SearchPatient = () => {
               className="glass-input" 
               style={{ paddingLeft: '45px' }} 
               placeholder={t('hospital.enterArogyam')}
-              value={Arogyam}
-              onChange={(e) => setArogyam(e.target.value)}
+              value={arogyamId}
+              onChange={(e) => setArogyamId(e.target.value)}
               required
             />
           </div>

@@ -808,7 +808,7 @@ const AdminDashboard = () => {
         <aside className={`admin-sidebar ${sidebarOpen ? 'sidebar-open' : ''}`}>
           <div className="sidebar-header">
             <div className="admin-badge"><Icons.Shield /> {t('admin.superAdmin')}</div>
-            <h3>Arogyam</h3>
+            <h3>arogyamId</h3>
             <p>{t('admin.adminPortal')}</p>
           </div>
 

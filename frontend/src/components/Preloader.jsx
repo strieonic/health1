@@ -100,7 +100,7 @@ const Preloader = ({ onComplete }) => {
               letterSpacing: '-0.03em',
             }}
           >
-            Arogyam
+            arogyamId
           </motion.div>
 
           {/* Progress */}
