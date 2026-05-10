@@ -1,7 +1,7 @@
 import express from "express";
 import {
   getHospitalProfile,
-  searchPatientByHealthId,
+  searchPatientByArogyamId,
   getHospitalPatients,
 } from "../controllers/hospitalController.js";
 
@@ -22,7 +22,7 @@ router.get("/profile", getHospitalProfile);
 /* =========================
    SEARCH PATIENT BY HEALTH ID
 ========================= */
-router.post("/search-patient", searchPatientByHealthId);
+router.post("/search-patient", searchPatientByArogyamId);
 
 /* =========================
    HOSPITAL DIRECTORY
