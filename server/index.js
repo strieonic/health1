@@ -37,16 +37,20 @@ app.use(
 );
 
 app.use("/api/patient", patientRoutes);
-
 app.use("/api/hospital", hospitalRoutes);
-
 app.use("/api/consent", consentRoutes);
 app.use("/api/records", medicalRecordRoutes);
+
+// Auth Routes (Mount at /api/auth and /api fallback)
 app.use("/api/auth", authRoutes);
-app.use("/api", authRoutes); // Fallback for direct /patient/register etc.
+app.use("/api", authRoutes); 
+
+// Public Routes (Mount at /api/public and /public fallback)
+app.use("/api/public", publicRoutes);
+app.use("/public", publicRoutes);
+
 app.use("/api/admin", adminRoutes);
 app.use("/api/ai", aiRoutes);
-app.use("/api/public", publicRoutes);
 const PORT = process.env.PORT || 8000;
 
 const startServer = async () => {
