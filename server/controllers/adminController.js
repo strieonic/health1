@@ -188,7 +188,7 @@ export const getAllPatients = async (req, res) => {
 export const getAllRecords = async (req, res) => {
   try {
     const records = await MedicalRecord.find()
-      .populate("patient", "name Arogyam")
+      .populate("patient", "name arogyamId")
       .populate("hospital", "hospitalName")
       .sort({ createdAt: -1 });
     res.status(200).json({
@@ -206,7 +206,7 @@ export const getAllRecords = async (req, res) => {
 export const getAllConsents = async (req, res) => {
   try {
     const consents = await Consent.find()
-      .populate("patientId", "name Arogyam")
+      .populate("patientId", "name arogyamId")
       .populate("hospitalId", "hospitalName")
       .sort({ createdAt: -1 });
     res.status(200).json({

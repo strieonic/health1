@@ -73,7 +73,7 @@ export const getPatientRecords = async (req, res) => {
   try {
     const { arogyamId } = req.params;
 
-    const patient = await Patient.findOne({ arogyamId: Arogyam.trim() });
+    const patient = await Patient.findOne({ arogyamId: arogyamId.trim() });
 
     if (!patient) {
       return res.status(404).json({ message: "Patient not found" });

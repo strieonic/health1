@@ -1,7 +1,7 @@
 import Patient from "../models/Patient.js";
 import MedicalRecord from "../models/MedicalRecord.js";
 import Consent from "../models/Consent.js";
-import generateArogyamId from "../utils/generateArogyam.js";
+import generateArogyamId from "../utils/generateArogyamId.js";
 import generateQR from "../utils/qrGenerator.js";
 
 /* ======================================================
@@ -94,7 +94,7 @@ export const addFamilyMember = async (req, res) => {
     const uniqueBase = aadhaar || cleanPhone || `${name}-${Date.now()}`;
 
     const arogyamId = generateArogyamId(uniqueBase);
-    const qrCode = await generateQR(Arogyam);
+    const qrCode = await generateQR(arogyamId);
 
     const newMember = await Patient.create({
       name,

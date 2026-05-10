@@ -10,7 +10,7 @@ export const requestConsent = async (req, res) => {
   try {
     const { arogyamId } = req.body;
 
-    console.log("arogyamId:", Arogyam);
+    console.log("arogyamId:", arogyamId);
     console.log("hospital:", req.hospital);
 
     const patient = await Patient.findOne({ arogyamId });

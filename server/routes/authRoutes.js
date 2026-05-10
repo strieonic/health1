@@ -13,7 +13,7 @@ const router = express.Router();
    PATIENT AUTH ROUTES
 ====================================================== */
 
-// Register patient (create Arogyam)
+// Register patient (create arogyamId)
 router.post("/patient/register", registerPatient);
 
 // Login step 1 → send OTP

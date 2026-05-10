@@ -2,7 +2,7 @@ import Patient from "../models/Patient.js";
 import Hospital from "../models/Hospital.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import generateArogyamId from "../utils/generateArogyam.js";
+import generateArogyamId from "../utils/generateArogyamId.js";
 import { generateOTP } from "../utils/sendOtp.js";
 import Doctor from "../models/Doctor.js";
 import { extractTextFromPDF } from "../utils/ocrScan.js";
@@ -39,7 +39,7 @@ export const registerPatient = async (req, res) => {
 
     // ✅ generate arogyamId + QR
     const arogyamId = generateArogyamId(phone);
-    const qrCode = await generateQR(Arogyam);
+    const qrCode = await generateQR(arogyamId);
 
     const patient = await Patient.create({
       name,
