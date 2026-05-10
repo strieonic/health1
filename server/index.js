@@ -25,35 +25,55 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 /* ======================================================
-   CORS FIX
+   CORS CONFIGURATION (PRODUCTION SAFE)
 ====================================================== */
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL
+].filter(Boolean);
 
 app.use(
   cors({
-    origin: true, // Allow all origins in dev
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
 
+/* ======================================================
+   HEALTH CHECK & ROOT ROUTES
+====================================================== */
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Arogyam API Running",
+  });
+});
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+  });
+});
+
+/* ======================================================
+   API ROUTES
+====================================================== */
 app.use("/api/patient", patientRoutes);
 app.use("/api/hospital", hospitalRoutes);
 app.use("/api/consent", consentRoutes);
 app.use("/api/records", medicalRecordRoutes);
-
-// Auth Routes (Mount at /api/auth, /api, /auth, and root / fallback)
 app.use("/api/auth", authRoutes);
-app.use("/api", authRoutes); 
-app.use("/auth", authRoutes);
-app.use("/", authRoutes);
-
-// Public Routes (Mount at /api/public, /public, and root / fallback)
 app.use("/api/public", publicRoutes);
-app.use("/public", publicRoutes);
-app.use("/", publicRoutes);
-
 app.use("/api/admin", adminRoutes);
 app.use("/api/ai", aiRoutes);
+
 const PORT = process.env.PORT || 8000;
 
 const startServer = async () => {

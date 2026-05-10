@@ -10,8 +10,11 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  // 🔥 FIX: Force IPv4 to avoid ENETUNREACH on environments that don't support IPv6 correctly
   family: 4,
+  // 🔥 FIX: Prevent long hangs if Gmail is unreachable
+  connectionTimeout: 5000, // 5 seconds
+  greetingTimeout: 5000,
+  socketTimeout: 5000,
 });
 
 transporter
