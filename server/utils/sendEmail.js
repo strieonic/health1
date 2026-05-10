@@ -10,6 +10,8 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  // 🔥 FIX: Force IPv4 to avoid ENETUNREACH on environments that don't support IPv6 correctly
+  family: 4,
 });
 
 transporter
