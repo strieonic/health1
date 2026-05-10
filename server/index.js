@@ -39,6 +39,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.warn(`🛑 CORS Blocked: ${origin}. Add this to FRONTEND_URL in Render.`);
         callback(new Error("Not allowed by CORS"));
       }
     },
