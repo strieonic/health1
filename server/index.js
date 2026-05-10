@@ -41,9 +41,10 @@ app.use("/api/hospital", hospitalRoutes);
 app.use("/api/consent", consentRoutes);
 app.use("/api/records", medicalRecordRoutes);
 
-// Auth Routes (Mount at /api/auth, /api, and root / fallback)
+// Auth Routes (Mount at /api/auth, /api, /auth, and root / fallback)
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes); 
+app.use("/auth", authRoutes);
 app.use("/", authRoutes);
 
 // Public Routes (Mount at /api/public, /public, and root / fallback)
