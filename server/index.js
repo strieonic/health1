@@ -43,6 +43,7 @@ app.use("/api/hospital", hospitalRoutes);
 app.use("/api/consent", consentRoutes);
 app.use("/api/records", medicalRecordRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api", authRoutes); // Fallback for direct /patient/register etc.
 app.use("/api/admin", adminRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/public", publicRoutes);
